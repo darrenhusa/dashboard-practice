@@ -46,7 +46,7 @@ class TradDashboard extends Component
         $this->getByTopFirstMajors($term);
         
         // $now = now();                                        
-        $this->date_timestamp = $this->date_convert(now(), 'UTC', 'America/Chicago', 'Y-m-d H:i A');
+        $this->date_timestamp = $this->date_convert(now(), 'UTC', 'America/Chicago', 'Y-m-d g:i A');
 
         $distinct_first_majors = StudentTerm::inTerm($term)->fullTime()->select('MAMI_ID_MJ1')->distinct()->pluck('MAMI_ID_MJ1');
         // dd($distinct_first_majors);
