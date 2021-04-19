@@ -7,10 +7,10 @@
     <th>Entry Type</th><th>FT</th><th>PT</th>
     </thead>
     </tr>
-    <tr><td>continuing</td><td>{{ $ft_trad_continuing }}</td><td>{{ $pt_trad_continuing }}</td></tr>
-    <tr><td>first-time</td><td>{{ $ft_trad_firsttime }}</td><td>{{ $pt_trad_firsttime }}</td></tr>
-    <tr><td>transfer</td><td>{{ $ft_trad_transfer }}</td><td>{{ $pt_trad_transfer }}</td></tr>
-    <tr><td>Totals</td><td>{{ $ft_trad_total }}</td><td>{{ $pt_trad_total }}</td><td></tr>
+    <tr><td>Continuing</td><td>{{ $ft_trad_continuing }}</td><td>{{ $pt_trad_continuing }}</td></tr>
+    <tr><td>First-time</td><td>{{ $ft_trad_firsttime }}</td><td>{{ $pt_trad_firsttime }}</td></tr>
+    <tr><td>Transfer</td><td>{{ $ft_trad_transfer }}</td><td>{{ $pt_trad_transfer }}</td></tr>
+    <tr><td>Totals</td><td><strong>{{ $ft_trad_total }}</strong></td><td>{{ $pt_trad_total }}</td><td></tr>
     </table>
     
     <h1>TRAD FullTime by Class Division</h1>
@@ -52,14 +52,14 @@
 
     <tr>
         <td>TOTAL</td>
-        <td>{{ $ft_trad_cdiv_total}}</td>
+        <td><strong>{{ $ft_trad_cdiv_total}}</strong></td>
     </tr>
 
     </table>
 </div>
 
 <div>
-<h1>TRAD Fulltime By Top Majors</h1>
+<h1>TRAD FullTime By Top Majors</h1>
 <table>
 <thead>
 <tr>
@@ -73,7 +73,7 @@
     </tr>
     @endforeach
     <tr>
-    <td>TOTAL</td><td>{{ $ft_trad_majors_total }}</td>
+    <td>TOTAL</td><td><strong>{{ $ft_trad_majors_total }}</strong></td>
     </tr>
 </table>
 </div>
