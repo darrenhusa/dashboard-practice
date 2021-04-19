@@ -110,12 +110,13 @@ class TradDashboard extends Component
         $ft_trad_human_services = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4905'])->count();
         $ft_trad_kinesiology = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4503'])->count();
         $ft_trad_psychology = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['2805'])->count();
+        $ft_trad_non_degree_seeking = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['9905'])->count();
 
         $this->ft_trad_majors_total = $ft_trad_accounting + $ft_trad_biomedical_science + $ft_trad_criminal_justice +
                                         $ft_trad_business_management + $ft_trad_digital_and_studio_arts + $ft_trad_elem_education +
                                         $ft_trad_english + $ft_trad_forensic_biotech + $ft_trad_forensic_science + $ft_trad_general_studies +
                                         $ft_trad_health_sciences + $ft_trad_human_services + $ft_trad_kinesiology + 
-                                        $ft_trad_psychology;
+                                        $ft_trad_psychology + $ft_trad_non_degree_seeking;
 
         $first_majors = [
             'Accounting'    =>  $ft_trad_accounting,
@@ -132,6 +133,7 @@ class TradDashboard extends Component
             'Human Services'   => $ft_trad_human_services,
             'Kinesiology'   => $ft_trad_kinesiology,
             'Psychology'   => $ft_trad_psychology,
+            'Non-Degree-Seeking'   => $ft_trad_non_degree_seeking,
         ];
 
         $this->top_majors = collect($first_majors)->sort()->reverse();
