@@ -13,7 +13,7 @@
         <livewire:styles />
     </head>
     <body>
-        <h1>TRAD Dashboard</h1>
+        <h1>Fall 2021 TRAD Programs Enrollment Dashboard</h1>
         <livewire:trad-dashboard />
          <livewire:scripts />   
     </body>

@@ -28,6 +28,7 @@ class TradDashboard extends Component
     public $top_majors;
     public $ft_trad_majors_total;
 
+    public $term;
     public $date_timestamp;
     
     public function mount()
@@ -38,6 +39,7 @@ class TradDashboard extends Component
     public function getDashboardData()
     {
         $term = '20211';
+        $this->term = $term;
         
         $this->ft_trad_continuing = StudentTerm::inTerm($term)->fullTime()->continuing()->count();
         $this->ft_trad_firsttime = StudentTerm::inTerm($term)->fullTime()->firstTime()->count();

@@ -1,13 +1,13 @@
 <div wire:poll.60s="getDashboardData">
     <p>Last updated on <strong>{{ $date_timestamp }}</strong></p>
-    <h1>TRAD FullTime by Entry Type</h1>
+    <h1>TRAD Programs by Entry Type</h1>
     <table>
     <tr>
     <thead>
     <th>Entry Type</th><th>FT</th><th>PT</th>
     </thead>
     </tr>
-    <tr><td>continiung</td><td>{{ $ft_trad_continuing }}</td><td>{{ $pt_trad_continuing }}</td></tr>
+    <tr><td>continuing</td><td>{{ $ft_trad_continuing }}</td><td>{{ $pt_trad_continuing }}</td></tr>
     <tr><td>first-time</td><td>{{ $ft_trad_firsttime }}</td><td>{{ $pt_trad_firsttime }}</td></tr>
     <tr><td>transfer</td><td>{{ $ft_trad_transfer }}</td><td>{{ $pt_trad_transfer }}</td></tr>
     <tr><td>Totals</td><td>{{ $ft_trad_total }}</td><td>{{ $pt_trad_total }}</td><td></tr>
