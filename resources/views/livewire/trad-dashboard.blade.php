@@ -17,8 +17,8 @@
     <table>
     <tr>
         <thead>
-            <td>Class</td>
-            <td>Count</td>
+            <th>Class</th>
+            <th>Count</th>
         </thead>
     </tr>
     <tr>
