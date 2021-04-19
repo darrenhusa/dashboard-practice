@@ -1,19 +1,18 @@
 <div wire:poll.60s="getDashboardData">
     <p>{{ $date_timestamp }}</p>
-    <ul>
-        <li>continiung {{ $ft_trad_continuing }}</li>
-        <li>first time {{ $ft_trad_firsttime }}</li>
-        <li>transfer {{ $ft_trad_transfer }}</li>
-        <li>FT TRAD TOTAL {{ $ft_trad_total }}</li>
-    </ul>
-
-    <ul>
-        <li>continiung {{ $pt_trad_continuing }}</li>
-        <li>first time {{ $pt_trad_firsttime }}</li>
-        <li>transfer {{ $pt_trad_transfer }}</li>
-        <li>PT TRAD TOTAL {{ $pt_trad_total }}</li>
-    </ul>
-
+    <h1>TRAD FullTime by Entry Type</h1>
+    <table>
+    <tr>
+    <thead>
+    <th>Entry Type</th><th>FT</th><th>PT</th>
+    </thead>
+    </tr>
+    <tr><td>continiung</td><td>{{ $ft_trad_continuing }}</td><td>{{ $pt_trad_continuing }}</td></tr>
+    <tr><td>first-time</td><td>{{ $ft_trad_firsttime }}</td><td>{{ $pt_trad_firsttime }}</td></tr>
+    <tr><td>transfer</td><td>{{ $ft_trad_transfer }}</td><td>{{ $pt_trad_transfer }}</td></tr>
+    <tr><td>Totals</td><td>{{ $ft_trad_total }}</td><td>{{ $pt_trad_total }}</td><td></tr>
+    </table>
+    
     <h1>TRAD FullTime by Class Division</h1>
     <table>
     <tr>

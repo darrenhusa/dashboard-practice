@@ -13,7 +13,7 @@
         <livewire:styles />
     </head>
     <body>
-        <h1>Trad Dashboard</h1>
+        <h1>TRAD Dashboard</h1>
         <livewire:trad-dashboard />
          <livewire:scripts />   
     </body>
