@@ -73,6 +73,9 @@ class TradDashboard extends Component
 
         $this->getByTopFirstMajors($term);
 
+        $distinct_first_majors = StudentTerm::inTerm($term)->fullTime()->select('MAMI_ID_MJ1')->distinct()->pluck('MAMI_ID_MJ1');
+        // dd($distinct_first_majors);
+
         // return $results;
     }
 
