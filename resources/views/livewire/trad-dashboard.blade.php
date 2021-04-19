@@ -58,3 +58,23 @@
 
     </table>
 </div>
+
+<div>
+<h1>TRAD Fulltime By Top Majors</h1>
+<table>
+<thead>
+<tr>
+    <th>Major</th><th>Count</th>
+</tr>
+</thead>
+
+    @foreach($top_majors as $key => $value)
+    <tr>
+        <td>{{ $key }}</td> <td>{{ $value }}</td>
+    </tr>
+    @endforeach
+    <tr>
+    <td>TOTAL</td><td>{{ $ft_trad_majors_total }}</td>
+    </tr>
+</table>
+</div>

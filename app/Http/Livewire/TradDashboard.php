@@ -24,6 +24,9 @@ class TradDashboard extends Component
     public $ft_trad_sr;
     public $ft_trad_other;
     public $ft_trad_cdiv_total;
+    
+    public $top_majors;
+    public $ft_trad_majors_total;
 
     public $date_timestamp;
     
@@ -67,7 +70,56 @@ class TradDashboard extends Component
 
         $this->date_timestamp = now();
 
+        $this->getByTopFirstMajors($term);
+
         // return $results;
+    }
+
+    public function getByTopFirstMajors($term)
+    {
+        // $ft_trad_top_majors = StudentTerm::inTerm($term)->fullTime()->groupBy('MAMI_ID_MJ1')->get();
+        $ft_trad_accounting = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['0105'])->count();
+        $ft_trad_biomedical_science = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4501'])->count();
+        $ft_trad_criminal_justice = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1005', 'A805'])->count();
+        $ft_trad_business_management = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['2205', 'A205'])->count(); 
+        $ft_trad_digital_and_studio_arts = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['5505'])->count();
+        $ft_trad_elem_education = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1205'])->count();
+        $ft_trad_english = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1309', '1308', '1307'])->count();
+        $ft_trad_forensic_biotech = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4502'])->count();
+        $ft_trad_forensic_science = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4504'])->count();
+        $ft_trad_general_studies = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1705'])->count();
+        $ft_trad_health_sciences = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['D102'])->count();
+        $ft_trad_human_services = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4905'])->count();
+        $ft_trad_kinesiology = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4503'])->count();
+        $ft_trad_psychology = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['2805'])->count();
+
+        $this->ft_trad_majors_total = $ft_trad_accounting + $ft_trad_biomedical_science + $ft_trad_criminal_justice +
+                                        $ft_trad_business_management + $ft_trad_digital_and_studio_arts + $ft_trad_elem_education +
+                                        $ft_trad_english + $ft_trad_forensic_biotech + $ft_trad_forensic_science + $ft_trad_general_studies +
+                                        $ft_trad_health_sciences + $ft_trad_human_services + $ft_trad_kinesiology + 
+                                        $ft_trad_psychology;
+
+        $first_majors = [
+            'Accounting'    =>  $ft_trad_accounting,
+            'Biomedical Science'    => $ft_trad_biomedical_science,
+            'Criminal Justice'  => $ft_trad_criminal_justice,
+            'Business Management'   => $ft_trad_business_management,
+            'Digital & Studio Arts'   => $ft_trad_digital_and_studio_arts,
+            'Elementary Education'   => $ft_trad_elem_education,
+            'English'   => $ft_trad_english,
+            'Forensic Biotechnology'   => $ft_trad_forensic_biotech,
+            'Forensic Science'   => $ft_trad_forensic_science,
+            'General Studies'   => $ft_trad_general_studies,
+            'Health Sciences'   => $ft_trad_health_sciences,
+            'Human Services'   => $ft_trad_human_services,
+            'Kinesiology'   => $ft_trad_kinesiology,
+            'Psychology'   => $ft_trad_psychology,
+        ];
+
+        $this->top_majors = collect($first_majors)->sort()->reverse();
+
+        // dd($this->top_majors, );
+
     }
 
     public function render()

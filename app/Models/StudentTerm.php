@@ -40,6 +40,16 @@ class StudentTerm extends Model
         return $query->where('CCSJ_PROD.SR_STUDENT_TERM.CDIV_ID', $class);
     }
     
+    public function scopeInFirstMajorCode($query, $code)
+    {
+        return $query->where('CCSJ_PROD.SR_STUDENT_TERM.MAMI_ID_MJ1', $code);
+    }
+
+    public function scopeInFirstMajor($query, $array)
+    {
+        return $query->whereIn('CCSJ_PROD.SR_STUDENT_TERM.MAMI_ID_MJ1', $array);
+    }
+
     public function scopeFullTime($query)
     {
         return $query->where('CCSJ_PROD.SR_ST_TERM_CRED.TU_CREDIT_ENRL', '>=', 12);
