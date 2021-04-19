@@ -1,16 +1,20 @@
 <div wire:poll.60s="getDashboardData">
     <p>Last updated on <strong>{{ $date_timestamp }}</strong></p>
     <h1>TRAD Programs by Entry Type</h1>
-    <table>
+    <table border=1>
     <tr>
     <thead>
-    <th>Entry Type</th><th>FT</th><th>PT</th>
+    <th>Entry Type</th><th>FT N</th><th>PT N</th><th>FT Cr Hrs</th><th>PT Cr Hrs</th>
     </thead>
     </tr>
-    <tr><td>Continuing</td><td>{{ $ft_trad_continuing }}</td><td>{{ $pt_trad_continuing }}</td></tr>
-    <tr><td>First-time</td><td>{{ $ft_trad_firsttime }}</td><td>{{ $pt_trad_firsttime }}</td></tr>
-    <tr><td>Transfer</td><td>{{ $ft_trad_transfer }}</td><td>{{ $pt_trad_transfer }}</td></tr>
-    <tr><td>Totals</td><td><strong>{{ $ft_trad_total }}</strong></td><td>{{ $pt_trad_total }}</td><td></tr>
+        <tr><td>Continuing</td><td>{{ $ft_trad_continuing }}</td><td>{{ $pt_trad_continuing }}</td><td>{{ $ft_trad_continuing_cr_hrs}}</td><td>{{ $pt_trad_continuing_cr_hrs}}</td>
+    </tr>
+    <tr><td>First-time</td><td>{{ $ft_trad_firsttime }}</td><td>{{ $pt_trad_firsttime }}</td><td>{{ $ft_trad_firsttime_cr_hrs}}</td><td>{{ $pt_trad_firsttime_cr_hrs}}</td>
+    </tr>
+    <tr><td>Transfer</td><td>{{ $ft_trad_transfer }}</td><td>{{ $pt_trad_transfer }}</td><td>{{ $ft_trad_transfer_cr_hrs}}</td><td>{{ $pt_trad_transfer_cr_hrs}}</td>
+    </tr>
+    <tr><td>Totals</td><td><strong>{{ $ft_trad_total }}</strong></td><td>{{ $pt_trad_total }}</td><td>{{ $ft_trad_total_cr_hrs}}</td><td>{{ $pt_trad_total_cr_hrs}}</td>
+    </tr>
     </table>
     
     <h1>TRAD FullTime by Class Division</h1>

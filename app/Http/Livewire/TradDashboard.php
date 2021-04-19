@@ -17,6 +17,15 @@ class TradDashboard extends Component
     public $pt_trad_transfer;
     public $pt_trad_total;
 
+    public $ft_trad_continuing_cr_hrs;
+    public $ft_trad_firsttime_cr_hrs;
+    public $ft_trad_transfer_cr_hrs;
+    public $ft_trad_total_cr_hrs;
+    public $pt_trad_continuing_cr_hrs;
+    public $pt_trad_firsttime_cr_hrs;
+    public $pt_trad_transfer_cr_hrs;
+    public $pt_trad_total_cr_hrs;
+
     public $ft_trad_f1;
     public $ft_trad_f2;
     public $ft_trad_so;
@@ -62,11 +71,24 @@ class TradDashboard extends Component
         $this->ft_trad_transfer = StudentTerm::inTerm($term)->fullTime()->transfer()->count();
         $this->ft_trad_total = StudentTerm::inTerm($term)->fullTime()->count();
         
+        // calculate cr hrs enrolled
+        $this->ft_trad_continuing_cr_hrs = StudentTerm::inTerm($term)->fullTime()->continuing()->sum('TU_CREDIT_ENRL');
+        $this->ft_trad_firsttime_cr_hrs = StudentTerm::inTerm($term)->fullTime()->firstTime()->sum('TU_CREDIT_ENRL');
+        $this->ft_trad_transfer_cr_hrs = StudentTerm::inTerm($term)->fullTime()->transfer()->sum('TU_CREDIT_ENRL');
+        $this->ft_trad_total_cr_hrs = StudentTerm::inTerm($term)->fullTime()->sum('TU_CREDIT_ENRL');
+        
+        // dd($ft_trad_total_cr_hrs);
+
         $this->pt_trad_continuing = StudentTerm::inTerm($term)->partTime()->continuing()->count();
         $this->pt_trad_firsttime = StudentTerm::inTerm($term)->partTime()->firstTime()->count();
         $this->pt_trad_transfer = StudentTerm::inTerm($term)->partTime()->transfer()->count();
         $this->pt_trad_total = StudentTerm::inTerm($term)->partTime()->count();
 
+        // calculate cr hrs enrolled
+        $this->pt_trad_continuing_cr_hrs = StudentTerm::inTerm($term)->partTime()->continuing()->sum('TU_CREDIT_ENRL');
+        $this->pt_trad_firsttime_cr_hrs = StudentTerm::inTerm($term)->partTime()->firstTime()->sum('TU_CREDIT_ENRL');
+        $this->pt_trad_transfer_cr_hrs = StudentTerm::inTerm($term)->partTime()->transfer()->sum('TU_CREDIT_ENRL');
+        $this->pt_trad_total_cr_hrs = StudentTerm::inTerm($term)->partTime()->sum('TU_CREDIT_ENRL');
     }
 
     public function getByClassDivision($term)
