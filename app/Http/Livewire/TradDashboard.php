@@ -41,6 +41,22 @@ class TradDashboard extends Component
         $term = '20211';
         $this->term = $term;
         
+        $this->getByEntryType($term);
+        $this->getByClassDivision($term);
+        $this->getByTopFirstMajors($term);
+        
+        // $now = now();                                        
+        $this->date_timestamp = $this->date_convert(now(), 'UTC', 'America/Chicago', 'Y-m-d H:i A');
+
+        $distinct_first_majors = StudentTerm::inTerm($term)->fullTime()->select('MAMI_ID_MJ1')->distinct()->pluck('MAMI_ID_MJ1');
+        // dd($distinct_first_majors);
+
+        // return $results;
+    }
+
+    public function getByEntryType($term)
+    {
+
         $this->ft_trad_continuing = StudentTerm::inTerm($term)->fullTime()->continuing()->count();
         $this->ft_trad_firsttime = StudentTerm::inTerm($term)->fullTime()->firstTime()->count();
         $this->ft_trad_transfer = StudentTerm::inTerm($term)->fullTime()->transfer()->count();
@@ -50,7 +66,11 @@ class TradDashboard extends Component
         $this->pt_trad_firsttime = StudentTerm::inTerm($term)->partTime()->firstTime()->count();
         $this->pt_trad_transfer = StudentTerm::inTerm($term)->partTime()->transfer()->count();
         $this->pt_trad_total = StudentTerm::inTerm($term)->partTime()->count();
-        
+
+    }
+
+    public function getByClassDivision($term)
+    {
         $this->ft_trad_f1 = StudentTerm::inTerm($term)->fullTime()->inClass('F1')->count();
         $this->ft_trad_f2 = StudentTerm::inTerm($term)->fullTime()->inClass('F2')->count();
         $this->ft_trad_so = StudentTerm::inTerm($term)->fullTime()->inClass('SO')->count();
@@ -70,26 +90,8 @@ class TradDashboard extends Component
                                     $this->ft_trad_sr +
                                     $this->ft_trad_other;
 
-        // $now = now();                                        
-        $this->date_timestamp = $this->date_convert(now(), 'UTC', 'America/Chicago', 'Y-m-d H:i A');
-
-        $this->getByTopFirstMajors($term);
-
-        $distinct_first_majors = StudentTerm::inTerm($term)->fullTime()->select('MAMI_ID_MJ1')->distinct()->pluck('MAMI_ID_MJ1');
-        // dd($distinct_first_majors);
-
-        // return $results;
     }
 
-    private function date_convert($time, $oldTZ, $newTZ, $format) {
-        // create old time
-        $d = new \DateTime($time, new \DateTimeZone($oldTZ));
-        // convert to new tz
-        $d->setTimezone(new \DateTimeZone($newTZ));
-    
-        // output with new format
-        return $d->format($format);
-    }
 
     public function getByTopFirstMajors($term)
     {
@@ -142,4 +144,15 @@ class TradDashboard extends Component
     {
         return view('livewire.trad-dashboard');
     }
+
+    private function date_convert($time, $oldTZ, $newTZ, $format) {
+        // create old time
+        $d = new \DateTime($time, new \DateTimeZone($oldTZ));
+        // convert to new tz
+        $d->setTimezone(new \DateTimeZone($newTZ));
+    
+        // output with new format
+        return $d->format($format);
+    }
+
 }
