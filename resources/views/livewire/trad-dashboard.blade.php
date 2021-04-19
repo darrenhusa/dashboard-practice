@@ -1,5 +1,5 @@
 <div wire:poll.60s="getDashboardData">
-    <p>{{ $date_timestamp }}</p>
+    <p>Last updated on <strong>{{ $date_timestamp }}</strong></p>
     <h1>TRAD FullTime by Entry Type</h1>
     <table>
     <tr>

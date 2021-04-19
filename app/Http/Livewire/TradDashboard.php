@@ -68,11 +68,22 @@ class TradDashboard extends Component
                                     $this->ft_trad_sr +
                                     $this->ft_trad_other;
 
-        $this->date_timestamp = now();
+        // $now = now();                                        
+        $this->date_timestamp = $this->date_convert(now(), 'UTC', 'America/Chicago', 'Y-m-d H:i A');
 
         $this->getByTopFirstMajors($term);
 
         // return $results;
+    }
+
+    private function date_convert($time, $oldTZ, $newTZ, $format) {
+        // create old time
+        $d = new \DateTime($time, new \DateTimeZone($oldTZ));
+        // convert to new tz
+        $d->setTimezone(new \DateTimeZone($newTZ));
+    
+        // output with new format
+        return $d->format($format);
     }
 
     public function getByTopFirstMajors($term)
