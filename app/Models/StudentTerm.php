@@ -45,6 +45,20 @@ class StudentTerm extends Model
         return $query->where('CCSJ_PROD.SR_ST_TERM_CRED.TU_CREDIT_ENRL', '<', 12);
     }
 
+    public function scopeContinuing($query)
+    {
+        return $query->whereIn('CCSJ_PROD.SR_STUDENT_TERM.ETYP_ID', ['CS']);
+    }
+
+    public function scopeFirstTime($query)
+    {
+        return $query->whereIn('CCSJ_PROD.SR_STUDENT_TERM.ETYP_ID', ['AH', 'HS', 'GE']);
+    }
+
+    public function scopeTransfer($query)
+    {
+        return $query->whereIn('CCSJ_PROD.SR_STUDENT_TERM.ETYP_ID', ['TR', 'T2', 'T4']);
+    }
 
 
 
