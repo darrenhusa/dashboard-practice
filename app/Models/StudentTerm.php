@@ -34,6 +34,11 @@ class StudentTerm extends Model
     {
         return $query->where('CCSJ_PROD.SR_STUDENT_TERM.TERM_ID', $term);
     }
+
+    public function scopeInClass($query, $class)
+    {
+        return $query->where('CCSJ_PROD.SR_STUDENT_TERM.CDIV_ID', $class);
+    }
     
     public function scopeFullTime($query)
     {
