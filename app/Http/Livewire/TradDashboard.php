@@ -124,7 +124,7 @@ class TradDashboard extends Component
         $ft_trad_business_management = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['2205', 'A205'])->count(); 
         $ft_trad_digital_and_studio_arts = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['5505'])->count();
         $ft_trad_elem_education = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1205'])->count();
-        $ft_trad_english = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1309', '1308', '1307'])->count();
+        $ft_trad_english = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1310', '1309', '1308', '1307'])->count();
         $ft_trad_forensic_biotech = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4502'])->count();
         $ft_trad_forensic_science = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4504'])->count();
         $ft_trad_general_studies = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1705'])->count();
