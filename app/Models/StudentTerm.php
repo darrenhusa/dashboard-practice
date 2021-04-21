@@ -30,6 +30,11 @@ class StudentTerm extends Model
             });
     }
 
+    public function activities()
+    {
+        return $this->belongsToMany(Activity::class, 'CCSJ_PROD_SR_STUD_TERM_ACT');
+    }
+
     public function scopeInTerm($query, $term)
     {
         return $query->where('CCSJ_PROD.SR_STUDENT_TERM.TERM_ID', $term);
