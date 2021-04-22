@@ -23,6 +23,7 @@ class StudentTerm extends Model
         static::addGlobalScope('trad', function (Builder $builder) {
             $builder->whereIn('CCSJ_PROD.SR_STUDENT_TERM.STUD_STATUS', ['A', 'W'])
                 ->where('CCSJ_PROD.SR_STUDENT_TERM.PRGM_ID1', 'like', 'TR%')
+                ->join('CCSJ_PROD.CCSJ_CO_V_NAME', 'CCSJ_PROD.SR_STUDENT_TERM.NAME_ID', '=', 'CCSJ_PROD.CCSJ_CO_V_NAME.NAME_ID')
                 ->join('CCSJ_PROD.SR_ST_TERM_CRED', function ($join)  {
                     $join->on('CCSJ_PROD.SR_STUDENT_TERM.NAME_ID', '=', 'CCSJ_PROD.SR_ST_TERM_CRED.NAME_ID');
                     $join->on('CCSJ_PROD.SR_STUDENT_TERM.TERM_ID', '=', 'CCSJ_PROD.SR_ST_TERM_CRED.TERM_ID');
@@ -32,7 +33,8 @@ class StudentTerm extends Model
 
     public function activities()
     {
-        return $this->belongsToMany(Activity::class, 'CCSJ_PROD_SR_STUD_TERM_ACT');
+        // return $this->belongsToMany('App\Models\Activity', 'CCSJ_PROD_SR_STUD_TERM_ACT');
+        return $this->belongsToMany(Activity::class, 'CCSJ_PROD.SR_STUD_TERM_ACT', 'NAME_ID', 'ACTI_ID');
     }
 
     public function scopeInTerm($query, $term)

@@ -17,6 +17,7 @@ class Activity extends Model
 
     public function student_terms()
     {
-        return $this->belongsToMany(StudentTerm::class, 'CCSJ_PROD_SR_STUD_TERM_ACT');
+        // return $this->belongsToMany('App\Models\StudentTerm', 'CCSJ_PROD_SR_STUD_TERM_ACT');
+        return $this->belongsToMany(StudentTerm::class, 'CCSJ_PROD.SR_STUD_TERM_ACT', 'ACTI_ID', 'NAME_ID');
     }
 }
