@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\Builder;
 class StudentTerm extends Model
 {
     use HasFactory;
+    // use \LaravelTreats\Model\Traits\HasCompositePrimaryKey;
 
  
     protected $table = 'CCSJ_PROD.SR_STUDENT_TERM';
     protected $primaryKey = 'NAME_ID';
+    // protected $primaryKey = ['NAME_ID', 'TERM_ID'];
     public $incrementing = false;
     protected $keyType = 'string';
     public $timestamps = false;
