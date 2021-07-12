@@ -127,8 +127,9 @@ class TradDashboard extends Component
         $ft_trad_english = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1310', '1309', '1308', '1307'])->count();
         $ft_trad_forensic_biotech = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4502'])->count();
         $ft_trad_forensic_science = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4504'])->count();
-        $ft_trad_general_studies = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1705'])->count();
+        $ft_trad_general_studies = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['1705', 'B105'])->count();
         $ft_trad_health_sciences = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['D102'])->count();
+        $ft_trad_medical_lab_science = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['3706'])->count();
         $ft_trad_human_services = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4905'])->count();
         $ft_trad_kinesiology = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['4503'])->count();
         $ft_trad_psychology = StudentTerm::inTerm($term)->fullTime()->inFirstMajor(['2805'])->count();
@@ -137,8 +138,8 @@ class TradDashboard extends Component
         $this->ft_trad_majors_total = $ft_trad_accounting + $ft_trad_biomedical_science + $ft_trad_criminal_justice +
                                         $ft_trad_business_management + $ft_trad_digital_and_studio_arts + $ft_trad_elem_education +
                                         $ft_trad_english + $ft_trad_forensic_biotech + $ft_trad_forensic_science + $ft_trad_general_studies +
-                                        $ft_trad_health_sciences + $ft_trad_human_services + $ft_trad_kinesiology + 
-                                        $ft_trad_psychology + $ft_trad_non_degree_seeking;
+                                        $ft_trad_health_sciences + $ft_trad_medical_lab_science + $ft_trad_human_services + 
+                                        $ft_trad_kinesiology + $ft_trad_psychology + $ft_trad_non_degree_seeking;
 
         $first_majors = [
             'Accounting'    =>  $ft_trad_accounting,
@@ -152,6 +153,7 @@ class TradDashboard extends Component
             'Forensic Science'   => $ft_trad_forensic_science,
             'General Studies'   => $ft_trad_general_studies,
             'Health Sciences'   => $ft_trad_health_sciences,
+            'Medical Lab Science'   => $ft_trad_medical_lab_science,
             'Human Services'   => $ft_trad_human_services,
             'Kinesiology'   => $ft_trad_kinesiology,
             'Psychology'   => $ft_trad_psychology,
